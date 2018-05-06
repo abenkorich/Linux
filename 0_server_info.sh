@@ -7,7 +7,7 @@
 #
 # Description   :   Bash script to install apache2
 # Usage         :   Use 'curl' to run this script directly from Github.
-# Command       :   curl -L https://gist.githubusercontent.com/abenkorich/--/raw | bash
+# Command       :   curl -L https://raw.githubusercontent.com/abenkorich/Linux-webserver/master/0_server_info.sh | bash
 #
 # Credit        :   https://github.com/teddysun/lamp/blob/master/include/public.sh
 # License       :   MIT license -> https://opensource.org/licenses/MIT

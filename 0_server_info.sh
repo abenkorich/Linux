@@ -58,5 +58,5 @@ display_os_info(){
     echo "---------------------------------------------------------------------"
 }
 
-check_ram
+get_os_info
 display_os_info

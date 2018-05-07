@@ -27,7 +27,7 @@ get_os_info(){
     swap=$( free -m | awk '/Swap/ {print $2}' )
     up=$( awk '{a=$1/86400;b=($1%86400)/3600;c=($1%3600)/60;d=$1%60} {printf("%ddays, %d:%d:%d\n",a,b,c,d)}' /proc/uptime )
     load=$( w | head -1 | awk -F'load average:' '{print $2}' | sed 's/^[ \t]*//;s/[ \t]*$//' )
-    opsy=$( get_opsy )
+    opsy=$( lsb_release -d)
     arch=$( uname -m )
     lbit=$( getconf LONG_BIT )
     host=$( hostname )

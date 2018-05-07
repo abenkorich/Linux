@@ -14,6 +14,10 @@
 # Tested On     :   Ubuntu 16.04
 # --------------------------------------------------------------------------------------
 
+get_ip (){
+  IP=$( wget -qO- -t1 -T2 ipinfo.io/ip )
+  [ ! -z ${IP} ] && echo ${IP} || echo
+}
 
 get_os_info(){
     cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )

@@ -17,6 +17,60 @@
 
 sudo apt install nginx
 
+# Create a new website directory
+sudo mkdir /var/www/"domain_name"
+
+# Grant access to the created directory
+sudo chown -R $USER:$USER /var/www/"domain_name"
+
+# Create new site config file
+sudo nano /etc/nginx/sites-available/"domain_name"
+
+# Exmaple of a config file with min config
+# Watch out, it is listning on port 80, so appache if existed has to listen on 8080 as proxy
+# modifiy  /etc/apache2/ports.conf 
+# Listen 80 -> Listen 8080
+# sudo service apache2 restart before ngnx start or reload
+server {
+    listen 80;
+    listen [::]:80 ipv6only=on;  # default_server; is optional
+
+    root /var/www/your_domain;
+    index index.php index.html index.htm;
+
+    server_name "domain_name";
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+    }
+}
+
+
+
+# Enable th new website conf file 
+sudo ln -s /etc/nginx/sites-available/"domain_name" /etc/nginx/sites-enabled/
+
+# Test if the conf files fas no errors
+sudo nginx -t
+
+# Restart nginx to take effects
+sudo systemctl reload nginx
+
+# Good for troubleshooting - Start
+
+# Check which port nginx is listning on
+grep -r listen /etc/nginx/*
+
+# Check who is listning on port 80
+sudo lsof -i :80
+sudo fuser -k 80/tcp
+
+# Good for troubleshooting - End
 
 sudo systemctl stop nginx.service
 sudo systemctl start nginx.service

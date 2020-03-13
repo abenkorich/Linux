@@ -24,4 +24,7 @@ apt-get -y install php-mysql php-common php-mcrypt libapache2-mod-php
 # install php packages
 apt-get -y install php-cli php-fpm libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-zip php7.0-json php7.0-xml php7.0-mcrypt php7.0-gd
 
+# extra tools
+sudo apt-get install php-curl zip xml-core xml2 zlibc mcrypt
+
 libapache2-mod-php

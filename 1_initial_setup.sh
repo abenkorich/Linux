@@ -53,3 +53,36 @@ service ssh restart or systemctl reload sshd
 
 fi
 }
+
+# usefull user commands
+
+# Check current logged users
+users
+
+# check number of logge dusers 
+users | wc -w
+
+# Check current logged user group
+groups
+
+# Check specific user group
+groups dzduino
+
+# Check current user info
+who -u
+w
+
+# check lastely logged user 
+last -a
+
+# check logging status of all users
+lastlog
+
+# Check all Existing users 
+less /etc/passwd
+top /etc/passwd
+
+# Check all Existing users Passwords, encrypted
+less /etc/shadow
+top /etc/shadow
+

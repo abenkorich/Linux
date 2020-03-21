@@ -24,23 +24,6 @@
 
 #!/bin/bash
 
-install_oc(){
-clear
-echo "======================================================================"
-echo "Wordpress Installation Started "
-echo "======================================================================"
-echo "The Access Credentials are writen under /root/.dzd_wp_install_credit"
-echo -e $dbname'\n'$dbuser'\n'$dbpass >> /root/.dzd_wp_install_credit
-#make a temporary directory to handle the install
-mkdir -p ~/dzd_bot/oc | cd ~/dzd_bot/oc
-#download wordpress by cloning it
-git clone https://github.com/opencart/opencart.git
-#copy file to parent dir
-mv opencart/upload/* .
-#remove wordpress folder
-rm -R opencart/upload/
-}
-
 install_wp(){
 clear
 echo "======================================================================"
@@ -66,14 +49,12 @@ rm -R wordpress
 install_bot(){
 clear
 echo "======================================================================"
-echo "The DZD Bot started installing your app "
+echo "The Bena Bot started installing your app "
 echo "======================================================================"
-echo “Please Type [ W ] for Wordpress installation or [ O ] for Opencart Installation”
+echo “Please Type [ W ] for Wordpress installation”
 read -e choise
 if [ "$choise" == W ] ; then
 install_wp
-elif [ "$choise" == O ] ; then
-install_oc
 else
 echo "Bad Choise, Do you want to start over? Y/N"
 read -e choice
@@ -88,7 +69,7 @@ fi
 welcome (){
 clear
 echo "======================================================================"
-echo "Dzduino OpenCart Install Script "
+echo "                      Bena Wordpress Install Script "
 echo "======================================================================"
 echo “Database Name: ”
 read -e dbname

@@ -41,38 +41,14 @@ mv opencart/upload/* .
 rm -R opencart/upload/
 }
 
-install_wp(){
-clear
-echo "======================================================================"
-echo "Opencart Installation started "
-echo "======================================================================"
-echo "The Access Credentials are writen under /root/.dzd_wp_install_credit"
-#store the input credentials in a secure file at /root/.dzd_wp_install_credit
-echo -e $dbname'\n'$dbuser'\n'$dbpass >> /root/.dzd_wp_install_credit
-#make a temporary directory to handle the install
-mkdir -p ~/dzd_bot/wp | cd ~/dzd_bot/wp
-#download wordpress
-curl -O http://wordpress.org/latest.tar.gz
-#unzip wordpress
-tar -zxvf latest.tar.gz
-#change dir to wordpress
-cd wordpress
-#copy file to parent dir
-cp -rf wordpress/* .
-#remove wordpress folder
-rm -R wordpress
-}
-
 install_bot(){
 clear
 echo "======================================================================"
 echo "The DZD Bot started installing your app "
 echo "======================================================================"
-echo “Please Type [ W ] for Wordpress installation or [ O ] for Opencart Installation”
+echo “Please Type [ O ] for Opencart Installation”
 read -e choise
-if [ "$choise" == W ] ; then
-install_wp
-elif [ "$choise" == O ] ; then
+if [ "$choise" == O ] ; then
 install_oc
 else
 echo "Bad Choise, Do you want to start over? Y/N"

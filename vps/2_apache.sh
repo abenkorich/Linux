@@ -28,7 +28,7 @@ apt-get -y install apache2 libapache2-mod-php
 # allow full apache with the fire wall
 sudo ufw allow 'Apache Full'
 
-sudo nano /etc/apache2/sites-available/"domain_name"
+sudo nano /etc/apache2/sites-available/mysite
 
 # Example of a basic config file
 

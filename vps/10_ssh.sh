@@ -22,3 +22,12 @@ sudo ssh $SUDO_USER@$IP   -i $SSH_KEY_PATH  -p $PORT
 sudo ssh-copy-id -i $SSH_KEY_PATH.pub $SUDO_USER@$IP
 # Remove the server IP from known host file incase of config ch
 sudo ssh-keygen -R $IP
+# geneate 32bit length random key.
+openssl rand -base64 32
+
+# When server change identety and when getting this warning
+#WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+#Offending ECDSA key in /Users/xx/.ssh/known_hosts:11 <- line nuber
+#use the commande bellow where xx is the line number showed in the warning:
+
+sed -i -e xxd knows_hosts_path

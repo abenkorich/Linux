@@ -33,12 +33,12 @@ sudo nano /etc/apache2/sites-available/"domain_name"
 # Example of a basic config file
 
 <VirtualHost *:80>
-        ServerAdmin 3awani.com@gmail.com
-        ServerName 3awani.com
-        ServerAlias www.3awani.com
-        DocumentRoot /home/3awani.com/public_html
+        ServerAdmin mysite@gmail.com
+        ServerName mysite.com
+        ServerAlias www.mysite.com
+        DocumentRoot /home/mysite.com/public_html
 
-        <Directory /home/3awani.com/public_html/>
+        <Directory /home/mysite.com/public_html/>
             Options Indexes FollowSymLinks
             AllowOverride All
             Require all granted
@@ -55,10 +55,10 @@ sudo nano /etc/apache2/sites-available/"domain_name"
 
 
 # Enable th new website conf file 
-sudo ln -s /etc/nginx/sites-available/"domain_name" /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/
 
 # give apahce ownership of the web directory
-chown www-data:www-data /var/www/
+chown www-data:www-data /home/mysite/
 
 # enable web site
 a2ensite xxxx.conf

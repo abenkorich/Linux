@@ -28,6 +28,35 @@ apt-get -y install apache2 libapache2-mod-php
 # allow full apache with the fire wall
 sudo ufw allow 'Apache Full'
 
+sudo nano /etc/apache2/sites-available/"domain_name"
+
+# Example of a basic config file
+
+<VirtualHost *:80>
+        ServerAdmin 3awani.com@gmail.com
+        ServerName 3awani.com
+        ServerAlias www.3awani.com
+        DocumentRoot /home/3awani.com/public_html
+
+        <Directory /home/3awani.com/public_html/>
+            Options Indexes FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        <IfModule mod_dir.c>
+            DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
+        </IfModule>
+
+</VirtualHost>
+
+
+# Enable th new website conf file 
+sudo ln -s /etc/nginx/sites-available/"domain_name" /etc/nginx/sites-enabled/
+
 # give apahce ownership of the web directory
 chown www-data:www-data /var/www/
 

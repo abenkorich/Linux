@@ -18,9 +18,9 @@
 #
 
 
-# Please install cwebp 
+# Please install webp 
 apt-get update
-apt-get install cwebp
+apt-get install webp
 
 # Syntax: cwebp image.jpg -o image.webp
 

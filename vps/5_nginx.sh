@@ -103,3 +103,19 @@ chmod -R 755  www_dir
 nginx -t t verify
 
 ln -s /etc/nginx/sites-available/*sitename /etc/nginx/sites-enabled/
+
+# Enable Gzip Compression
+
+# Most likely gzip is enabled on your server. If not, you can following codes in /etc/nginx/nginx.conf
+
+	gzip on;
+	gzip_disable "msie6";
+
+	gzip_vary on;
+	gzip_proxied any;
+	gzip_comp_level 6;
+	gzip_buffers 16 8k;
+	gzip_http_version 1.1;
+	gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+# Most important lines are gzip on and gzip_types

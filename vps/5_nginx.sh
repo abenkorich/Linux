@@ -119,3 +119,9 @@ ln -s /etc/nginx/sites-available/*sitename /etc/nginx/sites-enabled/
 	gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
 
 # Most important lines are gzip on and gzip_types
+
+# Allow big file upload, especialy when uploading db through phpmyadmin
+sudo nano etc/nginx/nginx.conf
+
+# Search for "http {" and add after
+client_max_body_size 50M;

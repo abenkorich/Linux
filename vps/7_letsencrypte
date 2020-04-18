@@ -32,7 +32,7 @@ sudo apt-get install python-certbot-apache
 sudo certbot --nginx -d example.com -d www.example.com
 
 # expand exsiting to include sub domains
-certbot -d example.com, subdomain.example.com, www.example.com --expand
+certbot -d example.com,subdomain.example.com,www.example.com --expand
 
 # generate cert for websit eunder lamp
 sudo certbot --apache -d example.com -d www.example.com

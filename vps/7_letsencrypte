@@ -1,7 +1,7 @@
 #!/bin/bash
 # --------------------------------------------------------------------------------------
 # Initial Date  :   01/04/2018  (dd/mm/yyyy)
-# Last Review   :   23/03/2020
+# Last Review   :   05/06/2020
 # Author        :   BENKORICH Abdellah
 # URL           :   https://www.abenkorich.com
 # Email         :   abdellah.benkorich@gmail.com - hello@abenkorich.com
@@ -20,7 +20,11 @@
 #
 
 # Add the cerbot repo
-sudo add-apt-repository ppa:certbot/certbot | apt-get update
+sudo add-apt-repository ppa:certbot/certbot
+
+# Always update & upgrade Apt
+
+apt-get update | apt-get upgrade
 
 # Install cerbot plugin for nginx
 sudo apt-get install python-certbot-nginx
